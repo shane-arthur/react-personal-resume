@@ -62,8 +62,8 @@ function App() {
   };
 
   useEffect(() => {
-    performPDFResumeCreation();
-  }, []);
+    performPDFResumeCreation()
+  }, [])
 
   return (
     <>
@@ -233,7 +233,7 @@ function App() {
                           </div>
                           {/* resume-timeline-item-header */}
                           <div
-                            style={{ fontSize: "14px" }}
+                            style={{ fontSize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
@@ -248,7 +248,7 @@ function App() {
                             <h4 className="resume-timeline-item-desc-heading font-weight-bold">
                               Achievements:
                             </h4>
-                            <ul style={{ fontSize: "13px" }}>
+                            <ul style={{ fontSize: "15px" }}>
                               <li>
                                 Architected and led the development efforts for
                                 an internal merchandising application which is
@@ -278,9 +278,9 @@ function App() {
                               </li>
                               <li>
                                 Architected and developed the women's fashion
-                                shopping platform MVP with full
-                                ecommerce capabilities with a very lean team in
-                                less than 8 months.
+                                shopping platform MVP with full ecommerce
+                                capabilities with a very lean team in less than
+                                8 months.
                               </li>
                               <li>
                                 Maintained a lighthouse performance score of 80%
@@ -289,8 +289,8 @@ function App() {
                               <li>
                                 Developed a social incentive module used to
                                 drive Instagram influencers to the platform,
-                                which was also reused in other web applications in
-                                the organization.
+                                which was also reused in other web applications
+                                in the organization.
                               </li>
                               <li>
                                 Integrated various web applications into the
@@ -649,21 +649,21 @@ function App() {
                           </div>
                           {/*/}/resume-timeline-item-header*/}
                           <div
-                            style={{ fontSsize: "14px" }}
+                            style={{ fontSsize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
-                              UI Architect responsbile for leading a large team of 20+ frontend
-                              engineers through The Home Depot Canada's Digital
-                              Transformation. Responsible for high level
-                              architecture, feature delivery, crisis production
-                              defect triaging, mentorship of junior engineers,
-                              and more.
+                              UI Architect responsbile for leading a large team
+                              of 20+ frontend engineers through The Home Depot
+                              Canada's Digital Transformation. Responsible for
+                              high level architecture, feature delivery, crisis
+                              production defect triaging, mentorship of junior
+                              engineers, and more.
                             </p>
                             <h4 className="resume-timeline-item-desc-heading font-weight-bold">
                               Achievements:
                             </h4>
-                            <ul style={{ fontSize: "13px" }}>
+                            <ul style={{ fontSize: "15px" }}>
                               <li>
                                 Led the migration of over 75% of Home Depot
                                 Canada's ecommerce platform to single page
@@ -797,7 +797,6 @@ function App() {
                                   (Contract)
                                 </small>
                               </h3>
-                              {/*<span style="display: flex; justify-content: center; flex-direction: column; align-items:center; margin-left: 10px; font-size: 12px;">(contract)</span> */}
                               <div className="resume-company-name ml-auto">
                                 Royal Bank of Canada
                                 <small
@@ -820,7 +819,7 @@ function App() {
                           </div>
                           {/*/}/resume-timeline-item-header*/}
                           <div
-                            style={{ fontSize: "14px" }}
+                            style={{ fontSize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
@@ -832,7 +831,7 @@ function App() {
                             <h4 className="resume-timeline-item-desc-heading font-weight-bold">
                               Achievements
                             </h4>
-                            <ul style={{ fontSize: "13px" }}>
+                            <ul style={{ fontSize: "15px" }}>
                               <li>
                                 Created a data-visualization dashboard in
                                 Angular capable of consuming and visualizing
@@ -848,7 +847,7 @@ function App() {
                               </li>
                             </ul>
                             <div
-                              style={{ fontSize: "14px" }}
+                              style={{ fontSize: "15px" }}
                               className="resume-timeline-item-desc"
                             >
                               <h4 className="resume-timeline-item-desc-heading font-weight-bold">
@@ -945,7 +944,7 @@ function App() {
                           </div>
                           {/*/}/resume-timeline-item-header*/}
                           <div
-                            style={{ fontSize: "14px" }}
+                            style={{ fontSize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
@@ -956,7 +955,7 @@ function App() {
                             <h4 className="resume-timeline-item-desc-heading font-weight-bold">
                               Achievements
                             </h4>
-                            <ul style={{ fontSize: "13px" }}>
+                            <ul style={{ fontSize: "15px" }}>
                               <li>
                                 Created the first non-static, responsive UI in
                                 the Home Depot Canada's ecommerce platform,
@@ -1021,6 +1020,109 @@ function App() {
                               <li className="list-inline-item">
                                 <span className="badge badge-primary badge-pill">
                                   JavaServer Pages
+                                </span>
+                              </li>
+                            </ul>
+                          </div>
+                          {/* resume-timeline-item-desc */}
+                        </article>
+                        {/* resume-timeline-item */}
+
+                        <article
+                          style={{ paddingBottom: "0.5rem !important" }}
+                          className="resume-timeline-item position-relative"
+                        >
+                          <div className="resume-timeline-item-header mb-2">
+                            <div className="d-flex flex-column flex-md-row">
+                              <h3 className="resume-position-title font-weight-bold mb-1">
+                                Software Consultant
+                              </h3>
+                              <div
+                                style={{
+                                  textAlign: "right",
+                                  marginTop: "-5px",
+                                }}
+                                className="resume-company-name ml-auto"
+                              >
+                                Capco
+                                <small
+                                  style={{
+                                    textAlign: "center",
+                                    display: "block",
+                                  }}
+                                >
+                                  Toronto, ON, CAN
+                                </small>
+                              </div>
+                            </div>
+                            {/* row */}
+                            <div
+                              style={{ marginTop: "-10px" }}
+                              className="resume-position-time"
+                            >
+                              Jun. 2017 - Nov. 2017
+                            </div>
+                          </div>
+                          {/* resume-timeline-item-header */}
+                          <div
+                            style={{ fontSize: "15px" }}
+                            className="resume-timeline-item-desc"
+                          >
+                            <p>
+                              Acted as a frontend engineer on a test-driven
+                              development style web application for one of the
+                              big banks. Responsible for architecture, feature
+                              development, and test automation. The function was
+                              to complete back office/admin tasks for one of
+                              their online mobile banking applications.
+                            </p>
+                            <h4 className="resume-timeline-item-desc-heading font-weight-bold">
+                              Technologies used:
+                            </h4>
+                            <ul className="list-inline">
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  Angular
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  NGRX
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  Protractor
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  Typescript
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  RxJs
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  HTML/CSS/SCSS
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  Bamboo
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  Ionic 3
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  Angular Material
                                 </span>
                               </li>
                             </ul>
@@ -1160,109 +1262,6 @@ function App() {
                   <section className="resume-section experience-section mb-5">
                     <div className="resume-section-content">
                       <div className="resume-timeline position-relative">
-                        <article
-                          style={{ paddingBottom: "0.5rem !important" }}
-                          className="resume-timeline-item position-relative"
-                        >
-                          <div className="resume-timeline-item-header mb-2">
-                            <div className="d-flex flex-column flex-md-row">
-                              <h3 className="resume-position-title font-weight-bold mb-1">
-                                Software Consultant
-                              </h3>
-                              <div
-                                style={{
-                                  textAlign: "right",
-                                  marginTop: "-5px",
-                                }}
-                                className="resume-company-name ml-auto"
-                              >
-                                Capco
-                                <small
-                                  style={{
-                                    textAlign: "center",
-                                    display: "block",
-                                  }}
-                                >
-                                  Toronto, ON, CAN
-                                </small>
-                              </div>
-                            </div>
-                            {/* row */}
-                            <div
-                              style={{ marginTop: "-10px" }}
-                              className="resume-position-time"
-                            >
-                              Jun. 2017 - Nov. 2017
-                            </div>
-                          </div>
-                          {/* resume-timeline-item-header */}
-                          <div
-                            style={{ fontSize: "14px" }}
-                            className="resume-timeline-item-desc"
-                          >
-                            <p>
-                              Acted as a frontend engineer on a test-driven
-                              development style web application for one of the
-                              big banks. Responsible for architecture, feature
-                              development, and test automation. The function was
-                              to complete back office/admin tasks for one of
-                              their online mobile banking applications.
-                            </p>
-                            <h4 className="resume-timeline-item-desc-heading font-weight-bold">
-                              Technologies used:
-                            </h4>
-                            <ul className="list-inline">
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  Angular
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  NGRX
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  Protractor
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  Typescript
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  RxJs
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  HTML/CSS/SCSS
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  Bamboo
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  Ionic 3
-                                </span>
-                              </li>
-                              <li className="list-inline-item">
-                                <span className="badge badge-primary badge-pill">
-                                  Angular Material
-                                </span>
-                              </li>
-                            </ul>
-                          </div>
-                          {/* resume-timeline-item-desc */}
-                        </article>
-                        {/* resume-timeline-item */}
-
                         <article className="resume-timeline-item position-relative">
                           <div className="resume-timeline-item-header mb-2">
                             <div className="d-flex flex-column flex-md-row">
@@ -1298,7 +1297,7 @@ function App() {
                           </div>
                           {/* resume-timeline-item-header */}
                           <div
-                            style={{ fontSize: "14px" }}
+                            style={{ fontSize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
@@ -1370,7 +1369,7 @@ function App() {
                         </article>
 
                         <article
-                          style={{ marginTop: "16px" }}
+                          style={{ marginTop: "3rem" }}
                           className="resume-timeline-item position-relative"
                         >
                           <div className="resume-timeline-item-header mb-2">
@@ -1406,7 +1405,7 @@ function App() {
                           </div>
                           {/* resume-timeline-item-header */}
                           <div
-                            style={{ fontSize: "14px" }}
+                            style={{ fontSize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
@@ -1460,7 +1459,7 @@ function App() {
                         </article>
 
                         <article
-                          style={{ marginTop: "16px" }}
+                          style={{ marginTop: "3rem" }}
                           className="resume-timeline-item position-relative"
                         >
                           <div className="resume-timeline-item-header mb-2">
@@ -1496,7 +1495,7 @@ function App() {
                           </div>
                           {/* resume-timeline-item-header */}
                           <div
-                            style={{ fontSize: "14px" }}
+                            style={{ fontSize: "15px" }}
                             className="resume-timeline-item-desc"
                           >
                             <p>
