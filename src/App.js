@@ -8,61 +8,62 @@ import jsPDF from "jspdf";
 
 function App() {
   const performPDFResumeCreation = () => {
-      const filename = "shane-arthur-august-2023-resume.pdf";
+    const filename = "shane-arthur-august-2023-resume.pdf";
 
-      const pdf = new jsPDF("l", "in", [2000, 1600]);
+    const pdf = new jsPDF("l", "in", [2000, 1600]);
 
-      const image = new Image();
-      image.src = shaneSelfie
-      image.onload = () => {
-        console.log('blicker')
-        html2canvas(document.getElementById("firstPage"), {
+    const image = new Image();
+    image.src = shaneSelfie;
+    image.onload = () => {
+      html2canvas(document.getElementById("firstPage"), {
+        scale: 2,
+        allowTaint: true,
+        useCORS: true,
+      }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+        html2canvas(document.getElementById("secondPage"), {
           scale: 2,
           allowTaint: true,
           useCORS: true,
         }).then((canvas) => {
-          const imgData = canvas.toDataURL("image/png");
-          const imgProps = pdf.getImageProperties(imgData);
+          var context = canvas.getContext("2d");
+          context.fillStyle = "#FFFFFF";
+          const imgData2 = canvas.toDataURL("image/png");
+          const imgProps = pdf.getImageProperties(imgData2);
           const pdfWidth = pdf.internal.pageSize.getWidth();
           const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-          pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-          html2canvas(document.getElementById("secondPage"), {
+          pdf.addPage();
+          pdf.setPage(2);
+          pdf.addImage(imgData2, "PNG", 0, 0, pdfWidth, pdfHeight);
+          html2canvas(document.getElementById("thirdPage"), {
             scale: 2,
             allowTaint: true,
             useCORS: true,
           }).then((canvas) => {
             var context = canvas.getContext("2d");
             context.fillStyle = "#FFFFFF";
-            const imgData2 = canvas.toDataURL("image/png");
-            const imgProps = pdf.getImageProperties(imgData2);
+            const imgData3 = canvas.toDataURL("image/png");
+            const imgProps = pdf.getImageProperties(imgData3);
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
             pdf.addPage();
-            pdf.setPage(2);
-            pdf.addImage(imgData2, "PNG", 0, 0, pdfWidth, pdfHeight);
-            html2canvas(document.getElementById("thirdPage"), {
-              scale: 2,
-              allowTaint: true,
-              useCORS: true,
-            }).then((canvas) => {
-              var context = canvas.getContext("2d");
-              context.fillStyle = "#FFFFFF";
-              const imgData3 = canvas.toDataURL("image/png");
-              const imgProps = pdf.getImageProperties(imgData3);
-              const pdfWidth = pdf.internal.pageSize.getWidth();
-              const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-              pdf.addPage();
-              pdf.setPage(3);
-              pdf.addImage(imgData3, "PNG", 0, 0, pdfWidth, pdfHeight);
-            
-              pdf.save(filename);
-            });
+            pdf.setPage(3);
+            pdf.addImage(imgData3, "PNG", 0, 0, pdfWidth, pdfHeight);
+
+            pdf.save(filename);
           });
         });
-      };
+      });
+    };
   };
 
-  useEffect(() => performPDFResumeCreation(), []);
+  useEffect(() => {
+    performPDFResumeCreation();
+  }, []);
 
   return (
     <>
@@ -150,7 +151,10 @@ function App() {
               </div>
               {/* media */}
             </header>
-            <div style={{ padding: "2rem !important" }} className="resume-body p-5">
+            <div
+              style={{ padding: "2rem !important" }}
+              className="resume-body p-5"
+            >
               <section
                 style={{ marginBottom: "1.5rem !important" }}
                 className="resume-section summary-section mb-5"
@@ -196,51 +200,6 @@ function App() {
                           >
                             <div
                               style={{
-                                marginTop: "-10px",
-                                justifyContent: "space-between",
-                              }}
-                              className="d-flex flex-column flex-md-row"
-                            >
-                              <h3 className="resume-position-title font-weight-bold mb-1">
-                                Software Engineering Manager
-                              </h3>
-                              <div
-                                style={{ textAlign: "end" }}
-                                className="resume-company-name ml-auto"
-                              >
-                                <span> Wish </span>
-                                <small
-                                  style={{
-                                    textAlign: "center",
-                                    display: "block",
-                                  }}
-                                >
-                                  Fort Lauderdale, FL, US
-                                </small>
-                              </div>
-                            </div>
-                            {/*/}/row*/}
-                            <div
-                              style={{ marginTop: "-15px" }}
-                              className="resume-position-time"
-                            >
-                              Apr. 2022 - Present
-                            </div>
-                            <div
-                              style={{ fontSize: "14px", marginTop: "8px" }}
-                              className="resume-timeline-item-desc"
-                            >
-                              <p>
-                                Hands on Software Engineering Manager managing a
-                                small team of 3-4 software engineers.
-                                Responsible for leading the implementation of
-                                multiple tools used by the Wish Merchandising
-                                team to facilitate customization of user buyer
-                                experiences.
-                              </p>
-                            </div>
-                            <div
-                              style={{
                                 justifyContent: "space-between",
                                 marginTop: "16px",
                               }}
@@ -260,7 +219,7 @@ function App() {
                                     display: "block",
                                   }}
                                 >
-                                  Toronto, ON, CAN
+                                  Fort Lauderdale, FL, USA / Toronto, ON, CAN
                                 </small>
                               </div>
                             </div>
@@ -269,7 +228,7 @@ function App() {
                               style={{ marginTop: "-15px" }}
                               className="resume-position-time"
                             >
-                              Mar. 2021 - Apr. 2022
+                              Mar. 2021 - Present
                             </div>
                           </div>
                           {/* resume-timeline-item-header */}
@@ -279,43 +238,74 @@ function App() {
                           >
                             <p>
                               Senior Software Engineer leading a small team of
-                              2-4 engineers create a new e-commerce web platform
-                              experience for Wish. Responsible for design,
-                              architecture, implementation and mentorship.
+                              2-4 frontend engineers on various projects
+                              including a new e-commerce web platform experience
+                              for Wish, internal merchandising applications, and
+                              internal monitoring tools. Responsible for design,
+                              architecture, implementation, hiring and
+                              mentorship.
                             </p>
                             <h4 className="resume-timeline-item-desc-heading font-weight-bold">
                               Achievements:
                             </h4>
                             <ul style={{ fontSize: "13px" }}>
                               <li>
-                                Architected and developed the platform MVP from
-                                scratch with full ecommerce capabilities with a
-                                very lean team in less than 8 months.
+                                Architected and led the development efforts for
+                                an internal merchandising application which is
+                                currently used to control and customize content
+                                and layouts of the majority of views in the Wish
+                                shopping application.
                               </li>
                               <li>
-                                Maintained a lighthouse performance score of >
-                                80 for all pages in the above web platform.
+                                Set up monitoring, alerting, and metrics
+                                reporting for multiple web applications in the
+                                Wish suite of tools (Pagerduty, Google Analytics
+                                and Sentry).
+                              </li>
+                              <li>
+                                Standardized various web applications by
+                                introducing strict linting, formatting, and
+                                consoldating various libraries and frameworks.
+                                (Moved most internal web applications to the UMI
+                                react framework, adopting the same reusable
+                                build pipelines.)
+                              </li>
+                              <li>
+                                Conducted performance audits on several internal
+                                web appliactions which resulted in one highly
+                                visible internal tool reducing its size by 90%
+                                and its build time by over 50%.
+                              </li>
+                              <li>
+                                Architected and developed the women's fashion
+                                shopping platform MVP with full
+                                ecommerce capabilities with a very lean team in
+                                less than 8 months.
+                              </li>
+                              <li>
+                                Maintained a lighthouse performance score of 80%
+                                for all pages in the above web platform.
                               </li>
                               <li>
                                 Developed a social incentive module used to
-                                drive Instagram influencers to the platform
-                                which was reused in other web applications in
+                                drive Instagram influencers to the platform,
+                                which was also reused in other web applications in
                                 the organization.
                               </li>
                               <li>
-                                Integrated the new platform into the core
-                                infrastructure pipeline at Wish (Kubernetes,
-                                Gitlab, and Kube Deploy)
-                              </li>
-                              <li>
-                                Setup monitoring, analytics and error tracking
-                                on the platform (Pagerduty, Google Analytics and
-                                Sentry)
+                                Integrated various web applications into the
+                                core infrastructure pipeline at Wish
+                                (Kubernetes, Gitlab, AWS).
                               </li>
                               <li>
                                 People & technical manager to several team
-                                members and involving in the hiring of Frontend
+                                members and involved in the hiring of Frontend
                                 Engineers on the greater team.
+                              </li>
+                              <li>
+                                Mentored several engineers helping them grow
+                                technically, and succesfully guided them through
+                                the promotion process at Wish.
                               </li>
                             </ul>
                             <h4 className="resume-timeline-item-desc-heading font-weight-bold">
@@ -380,6 +370,16 @@ function App() {
                               <li className="list-inline-item">
                                 <span className="badge badge-primary badge-pill">
                                   Flutter & Dart
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  UmiJS
+                                </span>
+                              </li>
+                              <li className="list-inline-item">
+                                <span className="badge badge-primary badge-pill">
+                                  SCSS
                                 </span>
                               </li>
                             </ul>
@@ -557,7 +557,9 @@ function App() {
                             <span className="badge badge-light">Docker</span>
                           </li>
                           <li className="list-inline-item">
-                            <span className="badge badge-light">Postgres SQL</span>
+                            <span className="badge badge-light">
+                              Postgres SQL
+                            </span>
                           </li>
                           <li className="list-inline-item">
                             <span className="badge badge-light">MySQL</span>
@@ -597,7 +599,10 @@ function App() {
             style={{ border: "1px solid black" }}
             className="resume-wrapper-inner mx-auto text-left bg-white shadow-lg"
           >
-            <div style={{ padding: "2rem !important" }} className="resume-body p-5">
+            <div
+              style={{ padding: "2rem !important" }}
+              className="resume-body p-5"
+            >
               {/*/}/summary-section*/}
               <div className="row">
                 <div className="col-lg-9">
@@ -648,7 +653,7 @@ function App() {
                             className="resume-timeline-item-desc"
                           >
                             <p>
-                              UI Architect leading a large team of 20+ frontend
+                              UI Architect responsbile for leading a large team of 20+ frontend
                               engineers through The Home Depot Canada's Digital
                               Transformation. Responsible for high level
                               architecture, feature delivery, crisis production
@@ -1073,7 +1078,9 @@ function App() {
                             className="resume-award-icon fas fa-trophy position-absolute"
                             data-fa-transform="shrink-2"
                           ></i>
-                          <div className="resume-award-name">Homer Award(s)</div>
+                          <div className="resume-award-name">
+                            Homer Award(s)
+                          </div>
                           <div className="resume-award-desc">
                             Received Homer Award in both 2018 and 2019 at Home
                             Depot. This award recognized outstanding work and
@@ -1143,7 +1150,10 @@ function App() {
             style={{ border: "1px solid black" }}
             className="resume-wrapper-inner mx-auto text-left bg-white shadow-lg"
           >
-            <div style={{ padding: "2rem !important" }} className="resume-body p-5">
+            <div
+              style={{ padding: "2rem !important" }}
+              className="resume-body p-5"
+            >
               {/* summary-section */}
               <div className="row">
                 <div className="col-lg-9">
